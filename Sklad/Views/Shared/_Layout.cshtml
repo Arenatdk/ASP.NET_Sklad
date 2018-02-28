@@ -22,9 +22,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+                    @using Sklad.Helpers
+                    <li class='@Html.IsActive("Providers", "Index")'>@Html.ActionLink("Поставщики", "Index", "Providers")</li>
+                    <li  class='@Html.IsActive("Tips", "Index")'>@Html.ActionLink("Типы", "Index", "Tips")</li>
+                    <li  class='@Html.IsActive("Employees", "Index")'>@Html.ActionLink("Сотрудники", "Index", "Employees")</li>
+                    <li  class='@Html.IsActive("Products", "Index")'>@Html.ActionLink("Товары", "Index", "Products")</li>
+                    <li  class='@Html.IsActive("Orders", "Index")'>@Html.ActionLink("Заказы", "Index", "Orders")</li>
+                    <li class='@Html.IsActive("Clients", "Index")'>@Html.ActionLink("Клиенты", "Index", "Clients")</li>
+
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -40,6 +46,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval") 
     @RenderSection("scripts", required: false)
 </body>
 </html>
